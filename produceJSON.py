@@ -19,10 +19,18 @@ def modify_scratch_project():
         model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a JSON file editor. You modify JSON files and return only the modified JSON."},
-            {"role": "user", "content": f"""
+            {"role": "user", "content": f""" 
                 Here is a JSON file which is the project.JSON file for a basic Scratch program project:
                 {json_str}
-                Please Modify the JSON file to make the sprite move forward 15 steps, wait 1 second, then turn 15 degrees, when the green flag is clicked.
+
+                Please modify the file by adding the following blocks:
+                when flag clicked 
+                set variable my number to 10
+                repeat 4 times[
+                change my number by 10
+                wait 1 second
+                ]
+
                 Return only valid JSON, with no explanation, no formatting (like ```json), and no extra text.
             """}
         ]
@@ -49,7 +57,8 @@ def modify_scratch_project():
     with open('project.json', 'w') as file:
         json.dump(modified_json, file, indent=2)
 
-    print("Modified file saved as 'project.json'.")
+    print("Modified file saved as 'project1.json'.")
+
 
 #method that takes in files (lst of file paths), compresses it, and saves it in zip_filename.zip
 def compress_files_to_zip(zip_filename, files):
@@ -85,8 +94,8 @@ files_to_compress = [
 
 def main():
     modify_scratch_project()
-    compress_files_to_zip("output.zip", files_to_compress) #compress files into output.zip
-    zip_to_sb3("output.zip", "scratch.sb3") #convert output.zip into scratch.sb3
+    compress_files_to_zip("output2.zip", files_to_compress) #compress files into output.zip
+    zip_to_sb3("output2.zip", "scratch2.sb3") #convert output.zip into scratch.sb3
 
 if __name__ == "__main__":
     main()
