@@ -7,10 +7,6 @@
         "`jEk@4|i[#Fk?(8x)AV.-my variable": [
           "my variable",
           0
-        ],
-        "`NH|@YTV%5KXn9P|LW.`": [
-          "my number",
-          0
         ]
       },
       "lists": {},
@@ -43,9 +39,9 @@
       "lists": {},
       "broadcasts": {},
       "blocks": {
-        "whenGreenFlag": {
+        "event_whenflagclicked": {
           "opcode": "event_whenflagclicked",
-          "next": "setVar",
+          "next": "control_repeat",
           "parent": null,
           "inputs": {},
           "fields": {},
@@ -54,82 +50,64 @@
           "x": 100,
           "y": 100
         },
-        "setVar": {
-          "opcode": "data_setvariableto",
-          "next": "repeatBlock",
-          "parent": "whenGreenFlag",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "10"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "my number",
-              "`NH|@YTV%5KXn9P|LW.`"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "repeatBlock": {
+        "control_repeat": {
           "opcode": "control_repeat",
           "next": null,
-          "parent": "setVar",
+          "parent": "event_whenflagclicked",
           "inputs": {
             "TIMES": [
               1,
-              [
-                4,
-                "4"
-              ]
+              "10"
             ],
             "SUBSTACK": [
               2,
-              "changeVar"
+              "motion_turnright"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "changeVar": {
-          "opcode": "data_changevariableby",
-          "next": "wait",
-          "parent": "repeatBlock",
+        "motion_turnright": {
+          "opcode": "motion_turnright",
+          "next": "looks_sayforsecs",
+          "parent": "control_repeat",
           "inputs": {
-            "VALUE": [
+            "DEGREES": [
               1,
-              [
-                4,
-                "10"
-              ]
+              "90"
             ]
           },
-          "fields": {
-            "VARIABLE": [
-              "my number",
-              "`NH|@YTV%5KXn9P|LW.`"
-            ]
-          },
+          "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "wait": {
+        "looks_sayforsecs": {
+          "opcode": "looks_sayforsecs",
+          "next": "control_wait",
+          "parent": "motion_turnright",
+          "inputs": {
+            "MESSAGE": [
+              1,
+              "hello!"
+            ],
+            "SECS": [
+              1,
+              "1"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "control_wait": {
           "opcode": "control_wait",
           "next": null,
-          "parent": "changeVar",
+          "parent": "looks_sayforsecs",
           "inputs": {
             "DURATION": [
               1,
-              [
-                4,
-                "1"
-              ]
+              "1"
             ]
           },
           "fields": {},
