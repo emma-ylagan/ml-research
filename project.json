@@ -39,39 +39,37 @@
       "lists": {},
       "broadcasts": {},
       "blocks": {
-        "event_whenflagclicked": {
+        "abc123def456ghi789j0": {
           "opcode": "event_whenflagclicked",
-          "next": "control_repeat",
+          "next": "bcd234efg567hij890k1",
           "parent": null,
           "inputs": {},
           "fields": {},
           "shadow": false,
           "topLevel": true,
-          "x": 100,
-          "y": 100
+          "x": 0,
+          "y": 0
         },
-        "control_repeat": {
+        "bcd234efg567hij890k1": {
           "opcode": "control_repeat",
           "next": null,
-          "parent": "event_whenflagclicked",
+          "parent": "abc123def456ghi789j0",
           "inputs": {
             "TIMES": [
               1,
               "10"
-            ],
-            "SUBSTACK": [
-              2,
-              "motion_turnright"
             ]
           },
           "fields": {},
           "shadow": false,
-          "topLevel": false
+          "topLevel": false,
+          "xyz": null,
+          "substack": "cde345fgh678ijk901l2"
         },
-        "motion_turnright": {
+        "cde345fgh678ijk901l2": {
           "opcode": "motion_turnright",
-          "next": "looks_sayforsecs",
-          "parent": "control_repeat",
+          "next": "def456ghi789jkl012m3",
+          "parent": "bcd234efg567hij890k1",
           "inputs": {
             "DEGREES": [
               1,
@@ -82,28 +80,24 @@
           "shadow": false,
           "topLevel": false
         },
-        "looks_sayforsecs": {
-          "opcode": "looks_sayforsecs",
-          "next": "control_wait",
-          "parent": "motion_turnright",
+        "def456ghi789jkl012m3": {
+          "opcode": "looks_say",
+          "next": "efg567hij890klm123n4",
+          "parent": "bcd234efg567hij890k1",
           "inputs": {
             "MESSAGE": [
               1,
               "hello!"
-            ],
-            "SECS": [
-              1,
-              "1"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "control_wait": {
+        "efg567hij890klm123n4": {
           "opcode": "control_wait",
           "next": null,
-          "parent": "looks_sayforsecs",
+          "parent": "bcd234efg567hij890k1",
           "inputs": {
             "DURATION": [
               1,

@@ -19,7 +19,7 @@ def modify_scratch_project():
 
     # use openAI to modify the base json file to include whatever we need
     response = client.chat.completions.create(
-        model="chatgpt-4o-latest",
+        model="o4-mini",
         messages=[
             {"role": "system", "content": "You are a JSON file editor. You modify JSON files and return only the modified JSON."},
             {"role": "user", "content": f""" 
